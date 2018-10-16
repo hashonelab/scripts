@@ -10,8 +10,7 @@ for host in $(cat portaliplist.txt); do
 
 	echo "Getting MaC, Miner type on $host"
 
-	sshpass -padmin ssh -oStrictHostKeyChecking=no -oCompression=yes \
-      -oConnectTimeout=$TIMEOUT root@"$host" -t "$command && $command2"
+	sshpass -padmin ssh root@"$host" -t "$command && $command2"
 done
 
 wait
@@ -20,8 +19,7 @@ for host in $(cat portaliplist.txt); do
 
 	echo "Saving results $host"
 
-	sshpass -padmin ssh -oStrictHostKeyChecking=no -oCompression=yes \
-     -oConnectTimeout=$TIMEOUT root@"$host" -t "$command3 && rm /home/root/info.txt" > /tmp/tokerigsmaclist.csv
+	sshpass -padmin ssh root@"$host" -t "$command3 && rm /home/root/info.txt" > /tmp/tokerigsmaclist.csv
  done 
 
 	echo "Done!"
