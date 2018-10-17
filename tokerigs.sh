@@ -4,7 +4,6 @@ command="cat /sys/class/net/eth0/address >> /home/root/info.txt"
 command2="sed -n 2p /usr/bin/compile_time >> /home/root/info.txt"
 command3="cat /home/root/info.txt"
 TIMEOUT="10"
-PORTAL="/home/spacedust/hashonelab/portal"
 
 for host in $(cat portaliplist.txt); do
 
