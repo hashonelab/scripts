@@ -8,7 +8,7 @@ PORTAL="/home/spacedust/hashonelab/portal"
 
 for host in $(cat portaliplist.txt); do
 
-	echo "Getting MaC, Miner type on $host"
+	echo "		Getting MaC, Miner type on $host"
 
 	sshpass -padmin ssh -oStrictHostKeyChecking=no -oCompression=yes \
       -oConnectTimeout=$TIMEOUT root@"$host" -t "$command && $command2"
@@ -18,13 +18,13 @@ wait
 
 for host in $(cat portaliplist.txt); do
 
-	echo "Saving results $host"
+	echo "		Saving results $host"
 
 	sshpass -padmin ssh -oStrictHostKeyChecking=no -oCompression=yes \
      -oConnectTimeout=$TIMEOUT root@"$host" -t "$command3 && rm /home/root/info.txt" > /tmp/tokerigsmaclist.csv
  done 
 
-	echo "Done!"
+	echo "		Done!"
 
 wait	
 
